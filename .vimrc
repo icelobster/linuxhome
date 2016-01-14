@@ -74,7 +74,8 @@ set incsearch
 set hlsearch
 " 设置主题
 set background=dark
-color solarized
+color evening
+"color solarized
 "color molokai
 " 跳到上次的光标位置
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

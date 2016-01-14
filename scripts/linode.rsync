@@ -1,0 +1,3 @@
+#/bin/bash
+
+rsync -av -e ssh ~/scripts/InstallEnv.sh envtest@45.79.78.26:scripts/InstallEnv.sh
