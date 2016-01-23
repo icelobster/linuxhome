@@ -29,6 +29,8 @@ Plugin 'dimasg/vim-mark'
 Plugin 'a.vim'
 " 标签书签可视化
 Plugin 'kshenoy/vim-signature'
+" python补全
+Plugin 'pythoncomplete'
 
 " 类似于taglist，显示当前文件里的函数，需要ctags
 Plugin 'Tagbar'
@@ -83,6 +85,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 " 定义快捷键的前缀，即<Leader>，默认是/
 let mapleader=","
+nmap <Leader>ww <C-w><C-w>
+nmap <Leader>rr  :!./%<CR>
 " 显示光标当前位置
 set ruler
 " 高亮显示当前行/列
@@ -113,3 +117,14 @@ set softtabstop=4
 
 " 启动 vim 时关闭折叠代码
 set nofoldenable
+" vim 自身命令行模式智能补全
+set wildmenu
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete 
+
+" backspace有的字符删不掉
+" indent：如果用了:set indent; set ai
+" 等自动缩进，想用退格键将字段缩进的删掉，必须设置这个选项。
+" eol：如果插入模式下在行开头，想通过退格键合并两行，需要设置这个
+" start：要想删除此次插入前的输入，需要设置这个
+set backspace=indent,eol,start
